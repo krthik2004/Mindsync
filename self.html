@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mental Health Self-Assessment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 15px;
+    }
+
+    .assessment-container {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1rem;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="assessment-container">
+    <h2 class="text-center mb-4">🧠 Mental Health Self-Assessment</h2>
+    <form id="quizForm">
+
+      <div class="question">
+        <label class="form-label">1. How often do you feel overwhelmed or stressed?</label>
+        <select class="form-select" name="q1" required>
+          <option value="0">Rarely</option>
+          <option value="1">Sometimes</option>
+          <option value="2">Often</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label class="form-label">2. Do you struggle with sleep or feel constantly tired?</label>
+        <select class="form-select" name="q2" required>
+          <option value="0">No</option>
+          <option value="1">Occasionally</option>
+          <option value="2">Yes, frequently</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label class="form-label">3. Do you often feel anxious or on edge?</label>
+        <select class="form-select" name="q3" required>
+          <option value="0">Not at all</option>
+          <option value="1">Mildly</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label class="form-label">4. Are you satisfied with your daily productivity or motivation levels?</label>
+        <select class="form-select" name="q4" required>
+          <option value="0">Yes</option>
+          <option value="1">Sometimes</option>
+          <option value="2">No, I feel low</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label class="form-label">5. How often do you feel socially withdrawn or disconnected?</label>
+        <select class="form-select" name="q5" required>
+          <option value="0">Rarely</option>
+          <option value="1">Sometimes</option>
+          <option value="2">Very Often</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label class="form-label">6. Do you experience frequent mood swings?</label>
+        <select class="form-select" name="q6" required>
+          <option value="0">No</option>
+          <option value="1">Sometimes</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label class="form-label">7. Do you feel hopeless or helpless often?</label>
+        <select class="form-select" name="q7" required>
+          <option value="0">Never</option>
+          <option value="1">Occasionally</option>
+          <option value="2">Frequently</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label class="form-label">8. How would you describe your current emotional state?</label>
+        <select class="form-select" name="q8" required>
+          <option value="0">Calm and positive</option>
+          <option value="1">Neutral</option>
+          <option value="2">Anxious or sad</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-submit mt-4">Check My Status</button>
+    </form>
+
+    <div id="result" class="alert mt-4 d-none"></div>
+  </div>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      let score = 0;
+
+      for (let value of formData.values()) {
+        score += parseInt(value);
+      }
+
+      const resultBox = document.getElementById("result");
+      let message = "";
+      let alertType = "";
+
+      if (score <= 4) {
+        message = "✅ You're mentally balanced. Keep up the good habits!";
+        alertType = "alert-success";
+      } else if (score <= 9) {
+        message = "⚠️ You're showing mild signs of stress. Try mindfulness or self-care activities.";
+        alertType = "alert-warning";
+      } else {
+        message = "❗ Consider consulting a mental health professional. You're not alone.";
+        alertType = "alert-danger";
+      }
+
+      resultBox.className = `alert ${alertType}`;
+      resultBox.innerHTML = message;
+      resultBox.classList.remove("d-none");
+    });
+  </script>
+</body>
+</html>
