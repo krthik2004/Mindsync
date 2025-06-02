@@ -100,7 +100,8 @@ MindSync/
 ├── TrainEmotionDetector.py
 ├── TestEmotionDetector.py
 ├── README.md
-└── (other frontend/backend files)
+└── (Additional frontend or backend files)
+
 
 
 
