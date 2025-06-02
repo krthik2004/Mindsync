@@ -23,6 +23,7 @@
 
 ---
 
+
 ## 📦 Installation
 
 ### 1. Clone the Repository
@@ -39,9 +40,14 @@ pip install keras
 pip3 install --upgrade tensorflow
 pip install pillow
 
+
+
 3. Download Dataset
+   
 
 Download the FER2013 dataset from Kaggle:
+
+
 
 🔗 FER2013 Dataset – Kaggle
 
@@ -79,6 +85,9 @@ After training is complete and model files are in place, test the emotion detect
 python TestEmotionDetector.py
 
 This will activate your webcam and detect real-time emotions from facial expressions.
+
+
+
 
 📄 Project Structure
 
