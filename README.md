@@ -3,6 +3,7 @@
 **MindSync** is an intelligent mental health tracking platform that combines AI-based emotion detection with mood tracking, music recommendations, and supportive tools to promote emotional well-being.
 
 ---
+![image](https://github.com/user-attachments/assets/3a608f96-fd42-4143-9105-5716d7cd07c7)
 
 ## 📌 Features
 
